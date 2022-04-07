@@ -1,10 +1,11 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
-#define max 100
+#define max 10
 
 struct list{
-  int a;
+  char value[500];
   struct list* nextlist;
 };
 
@@ -12,7 +13,7 @@ struct list * addlist(struct list * listp)
 {
   struct list * new_list;
   new_list = (struct list *)malloc(sizeof(struct list));
-  new_list->a = 0;
+  strcpy(new_list->value, "");
   if(listp != NULL)
     listp->nextlist = new_list;
   new_list->nextlist = NULL;
@@ -23,19 +24,20 @@ int main(void){
   struct list first_list;
   struct list * old_list;
   struct list * now_list;
-  int a=0;
+  char a[500];
+  int a_max;
   now_list = &first_list;
   for(int x=0; x<max; x++)
     {
-      fscanf(stdin, "%d", &a);
-      now_list->a = a;
+      fscanf(stdin, "%s", a);
+      strcpy(now_list->value,a);
       old_list = addlist( now_list );
       now_list = old_list;
     }
   now_list = &first_list;
   for(int x=0; x<max; x++)
     {
-      printf("%d:%p\n", now_list->a, now_list);
+      printf("%s:%p\n", now_list->value, now_list);
       old_list = now_list->nextlist;
       now_list = old_list;
       if(now_list == NULL)
@@ -47,7 +49,8 @@ int main(void){
   now_list = &first_list;
   for(int x=0; x<max; x++)
     {
-      printf("%d:%p\n", now_list->a, now_list);
+      a_max += atoi(now_list->value);
+      printf("%d\n", a_max);
       old_list = now_list->nextlist;
       now_list = old_list;
       if(now_list == NULL)
@@ -59,7 +62,7 @@ int main(void){
   now_list = &first_list;
   old_list = now_list->nextlist;
   now_list = old_list;
-  fscanf(stdin, "%d", &a);
+  fscanf(stdin, "%s", a);
   for(int x=0; x<(max-1); x++)
     {
       old_list = now_list->nextlist;
@@ -72,18 +75,6 @@ int main(void){
           printf("error");
           return -1;
         }
-      }
-  now_list = &first_list;
-  for(int x=0; x<max; x++)
-    {
-      printf("%d:%p\n", now_list->a, now_list);
-      old_list = now_list->nextlist;
-      now_list = old_list;
-      if(now_list == NULL)
-	{
-	  printf("error");
-	  return -1;
-	}
     }
   return 0;
 
