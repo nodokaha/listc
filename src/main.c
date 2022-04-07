@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-#define max 10000000
+#define max 100
 
 struct list{
   int a;
@@ -32,6 +32,47 @@ int main(void){
       old_list = addlist( now_list );
       now_list = old_list;
     }
+  now_list = &first_list;
+  for(int x=0; x<max; x++)
+    {
+      printf("%d:%p\n", now_list->a, now_list);
+      old_list = now_list->nextlist;
+      now_list = old_list;
+      if(now_list == NULL)
+	{
+	  printf("error");
+	  return -1;
+	}
+    }
+  now_list = &first_list;
+  for(int x=0; x<max; x++)
+    {
+      printf("%d:%p\n", now_list->a, now_list);
+      old_list = now_list->nextlist;
+      now_list = old_list;
+      if(now_list == NULL)
+	{
+	  printf("error");
+	  return -1;
+	}
+    }
+  now_list = &first_list;
+  old_list = now_list->nextlist;
+  now_list = old_list;
+  fscanf(stdin, "%d", &a);
+  for(int x=0; x<(max-1); x++)
+    {
+      old_list = now_list->nextlist;
+      printf("%p is freeing ...\n", now_list);
+      free(now_list);
+      printf("%p is free!\n", now_list);
+      now_list = old_list;
+      if(now_list == NULL)
+        {
+          printf("error");
+          return -1;
+        }
+      }
   now_list = &first_list;
   for(int x=0; x<max; x++)
     {
