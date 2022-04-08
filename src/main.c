@@ -5,15 +5,25 @@
 #define max 10
 
 struct list{
-  char value[500];
-  struct list* nextlist;
+  void * value;
+  void * nextlist;
 };
+
+//char * straddlist(void)
+//{
+//  char * new_list;
+  //new_list = (struct strlist *)malloc(sizeof(struct strlist));
+  //  strcpy(new_list->str_list, "");
+//  new_list = (char *)malloc(sizeof(char) * 500);
+//  return new_list;
+//}
 
 struct list * addlist(struct list * listp)
 {
   struct list * new_list;
   new_list = (struct list *)malloc(sizeof(struct list));
-  strcpy(new_list->value, "");
+  //  strcpy(new_list->value, "");
+  new_list->value = NULL;
   if(listp != NULL)
     listp->nextlist = new_list;
   new_list->nextlist = NULL;
@@ -22,24 +32,36 @@ struct list * addlist(struct list * listp)
 
 int main(void){
   struct list first_list;
-  struct list * old_list;
+  struct list * temp_list;
   struct list * now_list;
-  char a[500];
-  int a_max;
+//  char * temp_strlist;
+//  char * now_strlist;
+  char input[500];
+  char a[10][500];
+  //  char (*a_ptr)[10];
+  int a_max=0;
   now_list = &first_list;
   for(int x=0; x<max; x++)
     {
-      fscanf(stdin, "%s", a);
-      strcpy(now_list->value,a);
-      old_list = addlist( now_list );
-      now_list = old_list;
+      //      strcpy(now_strlist, a);
+//      temp_strlist = straddlist();
+//      now_strlist = temp_strlist;
+      fscanf(stdin, "%s", input);
+      //      now_list->value = (char *)now_list->value;
+      strncpy(((*a)+(500*x)), input, 500);
+      now_list->value = ((*a)+(500*x));
+      //      now_list->value = a[x];
+//      strcpy(now_strlist, a);
+//      now_list->value = (char *)now_strlist;
+      temp_list = addlist( now_list );
+      now_list = temp_list;
     }
   now_list = &first_list;
   for(int x=0; x<max; x++)
     {
-      printf("%s:%p\n", now_list->value, now_list);
-      old_list = now_list->nextlist;
-      now_list = old_list;
+      printf("%s:%p\n", (char *)now_list->value, now_list);
+      temp_list = now_list->nextlist;
+      now_list = temp_list;
       if(now_list == NULL)
 	{
 	  printf("error");
@@ -49,10 +71,10 @@ int main(void){
   now_list = &first_list;
   for(int x=0; x<max; x++)
     {
-      a_max += atoi(now_list->value);
+      a_max += atoi((char *)now_list->value);
       printf("%d\n", a_max);
-      old_list = now_list->nextlist;
-      now_list = old_list;
+      temp_list = now_list->nextlist;
+      now_list = temp_list;
       if(now_list == NULL)
 	{
 	  printf("error");
@@ -60,16 +82,16 @@ int main(void){
 	}
     }
   now_list = &first_list;
-  old_list = now_list->nextlist;
-  now_list = old_list;
-  fscanf(stdin, "%s", a);
+  temp_list = now_list->nextlist;
+  now_list = temp_list;
+  fscanf(stdin, "%s", input);
   for(int x=0; x<(max-1); x++)
     {
-      old_list = now_list->nextlist;
+      temp_list = now_list->nextlist;
       printf("%p is freeing ...\n", now_list);
       free(now_list);
       printf("%p is free!\n", now_list);
-      now_list = old_list;
+      now_list = temp_list;
       if(now_list == NULL)
         {
           printf("error");
