@@ -1,0 +1,9 @@
+all: listc
+     cd ..
+
+listc: listc.obj
+       cl listc.obj /Felistc
+
+listc.obj:
+	cd src
+	cl /c main.c /Folistc.obj
