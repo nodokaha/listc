@@ -9,18 +9,11 @@ struct list{
   void * cdr;
 };
 
-/* enum { */
-  
-/* } */
+struct string_list{
+  char val;
+  void * listp;
+};
 
-//char * straddlist(void)
-//{
-//  char * new_list;
-  //new_list = (struct strlist *)malloc(sizeof(struct strlist));
-  //  strcpy(new_list->str_list, "");
-//  new_list = (char *)malloc(sizeof(char) * 500);
-//  return new_list;
-//}
 
 struct list * pushlist(struct list * listp, void * value)
 {
@@ -29,6 +22,16 @@ struct list * pushlist(struct list * listp, void * value)
   new_list->car = value;
   if(listp != NULL && new_list != NULL)
     new_list->cdr = listp;
+  return new_list;
+}
+
+struct string_list * push_chrlist(struct string_list * listp, char value)
+{
+  struct string_list * new_list;
+  new_list = (struct string_list *)malloc(sizeof(struct string_list));
+  new_list->val = value;
+  if(listp != NULL && new_list != NULL)
+    new_list->listp = listp;
   return new_list;
 }
 
@@ -44,7 +47,6 @@ struct list * addcdrlist(struct list * listp)
 {
   struct list * new_list;
   new_list = (struct list *)malloc(sizeof(struct list));
-  //  strcpy(new_list->car, "");
   new_list->car = NULL;
   if(listp != NULL)
     listp->cdr = new_list;
@@ -63,99 +65,42 @@ struct list * addcarlist(struct list * listp)
   return new_list;
 }
 
-/* struct list * removelist(struct list * listp) */
-/* { */
-  
-/* } */
-
-/* void parser(char *string) */
-/* { */
-/*   if( */
-/* } */
-
-void eval(struct list * listp)
+int main(void)
 {
-}
-
-int main(void){
   struct list first_list;
-  struct list stack_list;
-  struct list * temp_list;
   struct list * now_list;
-  struct list * stacktemp_list;
-  struct list * stacknow_list;
-//  char * temp_strlist;
-//  char * now_strlist;
-  char input[500];
-  char a[10][500];
-  //  int index[10]={0,1,2,3,4,5,6,7,8,9};
-  //  char (*a_ptr)[10];
-  long int a_max=0;
-  now_list = &first_list;
-  stacknow_list = &stack_list;
-  for(int x=0; x<max; x++)
-    {
-      //      strcpy(now_strlist, a);
-//      temp_strlist = straddlist();
-//      now_strlist = temp_strlist;
-      fscanf(stdin, "%s", input);
-      //      now_list->car = (char *)now_list->car;
-      strncpy(((*a)+(500*x)), input, 500);
-      now_list->car = ((*a)+(500*x));
-      stacktemp_list = pushlist(stacknow_list, now_list);
-      //      stacktemp_list = pushlist(stacknow_list, &index[x]);
-      stacknow_list = stacktemp_list;
-      //      now_list->car = a[x];
-//      strcpy(now_strlist, a);
-//      now_list->car = (char *)now_strlist;
-      temp_list = addcdrlist( now_list );
-      now_list = temp_list;
-    }
-  now_list = &first_list;
-  for(int x=0; x<max; x++)
-    {
-      //      printf("%s:%p reverse-index:%d:%p\n", (char *)now_list->car, now_list, *((int *)stacknow_list->car), stacknow_list);
-      printf("%s:%p listp:%p:%p\n", (char *)now_list->car, now_list, (struct list *)stacknow_list->car, stacknow_list);
-      temp_list = now_list->cdr;
-      now_list = temp_list;
-      stacktemp_list = poplist(stacknow_list);
-      stacknow_list = stacktemp_list;
-      if(now_list == NULL || stacknow_list == NULL)
-	{
-	  printf("error");
-	  return -1;
-	}
-    }
-  now_list = &first_list;
-  for(int x=0; x<max; x++)
-    {
-      a_max += atoi((char *)now_list->car);
-      printf("%ld\n", a_max);
-      temp_list = now_list->cdr;
-      now_list = temp_list;
-      if(now_list == NULL)
-	{
-	  printf("error");
-	  return -1;
-	}
-    }
-  now_list = &first_list;
-  temp_list = now_list->cdr;
-  now_list = temp_list;
-  fscanf(stdin, "%s", input);
-  for(int x=0; x<(max-1); x++)
-    {
-      temp_list = now_list->cdr;
-      printf("%p is freeing ...\n", now_list);
-      free(now_list);
-      printf("%p is free!\n", now_list);
-      now_list = temp_list;
-      if(now_list == NULL)
-        {
-          printf("error");
-          return -1;
-        }
-    }
-  return 0;
+  struct list * next_list;
 
+  struct list stack_list;
+  struct list env_list;
+  struct list code_list;
+  struct list dump_list;
+
+  struct string_list first_chrlist;
+  struct string_list * now_chrlist;
+  struct string_list * next_chrlist;
+  
+  int counter = 0;
+  now_chrlist = &first_chrlist;
+  char one_char;
+  for(counter = 0; fscanf(stdin, "%c", &one_char) && one_char != '\n'; counter++)
+    {
+      next_chrlist = push_chrlist(now_chrlist, one_char);
+      now_chrlist = next_chrlist;
+      if(now_chrlist == NULL)
+	return -1;
+    }
+  printf("%d", counter);
+  char buffer[counter+1];
+  for(int i=0; NULL != now_chrlist->listp; i++)
+    {
+      buffer[i] = now_chrlist->val;
+      next_chrlist = now_chrlist->listp;
+      now_chrlist = next_chrlist;
+      if(NULL == now_chrlist)
+	return -1;
+    }
+  buffer[counter+1] = '\0';
+  printf("%s", buffer);
+  return 0;
 }
