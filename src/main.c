@@ -11,7 +11,7 @@ struct list{
 
 struct string_list{
   char val;
-  void * listp;
+  struct string_list * listp;
 };
 
 
@@ -32,6 +32,8 @@ struct string_list * push_chrlist(struct string_list * listp, char value)
   new_list->val = value;
   if(listp != NULL && new_list != NULL)
     new_list->listp = listp;
+  else
+   exit(1);
   return new_list;
 }
 
@@ -65,6 +67,40 @@ struct list * addcarlist(struct list * listp)
   return new_list;
 }
 
+char * malloc_input(void)
+{
+  struct string_list first_chrlist;
+  struct string_list * now_chrlist;
+  struct string_list * next_chrlist;
+
+  first_chrlist.listp = NULL;
+
+  int counter = 0;
+  now_chrlist = &first_chrlist;
+  char one_char;
+  for(counter = 0; fscanf(stdin, "%c", &one_char) != EOF && one_char != EOF && one_char != '\0' && one_char != '$'; counter++)
+    {
+      next_chrlist = push_chrlist(now_chrlist, one_char);
+      now_chrlist = next_chrlist;
+      if(now_chrlist == NULL)
+	printf("Error!");
+    }
+  printf("%d", counter);
+  char * buffer = (char *)malloc(sizeof(char) * (counter+1));
+  buffer[0] = '\n';
+  for(int i=0; i<counter; i++)
+    {
+      buffer[counter - i] = now_chrlist->val;
+      next_chrlist = now_chrlist->listp;
+      free(now_chrlist);
+      now_chrlist = next_chrlist;
+      if(NULL == now_chrlist)
+	printf("Error!");
+    }
+  buffer[counter+1] = '\0';
+  return buffer;
+}
+
 int main(void)
 {
   struct list first_list;
@@ -76,31 +112,10 @@ int main(void)
   struct list code_list;
   struct list dump_list;
 
-  struct string_list first_chrlist;
-  struct string_list * now_chrlist;
-  struct string_list * next_chrlist;
-  
-  int counter = 0;
-  now_chrlist = &first_chrlist;
-  char one_char;
-  for(counter = 0; fscanf(stdin, "%c", &one_char) && one_char != '\n'; counter++)
-    {
-      next_chrlist = push_chrlist(now_chrlist, one_char);
-      now_chrlist = next_chrlist;
-      if(now_chrlist == NULL)
-	return -1;
-    }
-  printf("%d", counter);
-  char buffer[counter+1];
-  for(int i=0; NULL != now_chrlist->listp; i++)
-    {
-      buffer[i] = now_chrlist->val;
-      next_chrlist = now_chrlist->listp;
-      now_chrlist = next_chrlist;
-      if(NULL == now_chrlist)
-	return -1;
-    }
-  buffer[counter+1] = '\0';
-  printf("%s", buffer);
+  char * buffer_p;
+
+  buffer_p = malloc_input();
+  printf("%s", buffer_p);
+
   return 0;
 }
