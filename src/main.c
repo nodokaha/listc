@@ -59,6 +59,21 @@ int main(void)
   char * buffer_p;
 
   buffer_p = malloc_input();
+  for(int i=0, deps=0; buffer_p[i] != '\0'; i++)
+    {
+      //      printf("\n%d\n", i);
+      //      for(; buffer_p[i] == ';' && buffer_p[i+1] == ';' || buffer_p[i] ; i++);
+      for(; buffer_p[i] == ' ' && buffer_p[i] != '\0';i++);
+      for(; buffer_p[i] != ' ' && buffer_p[i] != '\0';i++)
+	{
+	  if(buffer_p[i] == '(')
+	    deps++;
+	  else if(buffer_p[i] == ')')
+	    deps--;
+	  fprintf(stdout, "%c:%d:", buffer_p[i], deps);
+	}
+    }
+  printf("\n");
   printf("%s", buffer_p);
 
 
