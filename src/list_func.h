@@ -1,5 +1,5 @@
-#ifdef LIST_FUNC
-#define LIST_FUNC
+#ifdef _LIST_FUNC
+#define _LIST_FUNC
 #endif
 
 typedef struct {
