@@ -99,8 +99,8 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_clist_OBJECTS = main.$(OBJEXT) list_func.$(OBJEXT) \
-	input_func.$(OBJEXT)
+am_clist_OBJECTS = list_func.$(OBJEXT) input_func.$(OBJEXT) \
+	main.$(OBJEXT)
 clist_OBJECTS = $(am_clist_OBJECTS)
 clist_LDADD = $(LDADD)
 AM_V_P = $(am__v_P_@AM_V@)
@@ -247,7 +247,7 @@ target_alias = @target_alias@
 top_build_prefix = @top_build_prefix@
 top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
-clist_SOURCES = main.c list_func.c input_func.c
+clist_SOURCES = list_func.c input_func.c main.c
 all: all-am
 
 .SUFFIXES:

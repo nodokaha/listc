@@ -1,102 +1,180 @@
-main.o: main.c /usr/include/stdc-predef.h /usr/include/stdio.h \
- /usr/include/bits/libc-header-start.h /usr/include/features.h \
- /usr/include/features-time64.h /usr/include/bits/wordsize.h \
- /usr/include/bits/timesize.h /usr/include/sys/cdefs.h \
- /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
- /usr/include/gnu/stubs-64.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/11.3.0/include/stddef.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/11.3.0/include/stdarg.h \
- /usr/include/bits/types.h /usr/include/bits/typesizes.h \
- /usr/include/bits/time64.h /usr/include/bits/types/__fpos_t.h \
- /usr/include/bits/types/__mbstate_t.h \
- /usr/include/bits/types/__fpos64_t.h /usr/include/bits/types/__FILE.h \
- /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
- /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
- /usr/include/bits/floatn-common.h /usr/include/bits/stdio.h \
- /usr/include/bits/stdio2.h /usr/include/stdlib.h \
- /usr/include/bits/waitflags.h /usr/include/bits/waitstatus.h \
- /usr/include/sys/types.h /usr/include/bits/types/clock_t.h \
- /usr/include/bits/types/clockid_t.h /usr/include/bits/types/time_t.h \
- /usr/include/bits/types/timer_t.h /usr/include/bits/stdint-intn.h \
- /usr/include/endian.h /usr/include/bits/endian.h \
- /usr/include/bits/endianness.h /usr/include/bits/byteswap.h \
- /usr/include/bits/uintn-identity.h /usr/include/sys/select.h \
- /usr/include/bits/select.h /usr/include/bits/types/sigset_t.h \
- /usr/include/bits/types/__sigset_t.h \
- /usr/include/bits/types/struct_timeval.h \
- /usr/include/bits/types/struct_timespec.h /usr/include/bits/select2.h \
- /usr/include/bits/pthreadtypes.h /usr/include/bits/thread-shared-types.h \
- /usr/include/bits/pthreadtypes-arch.h \
- /usr/include/bits/atomic_wide_counter.h /usr/include/bits/struct_mutex.h \
- /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
- /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
- /usr/include/bits/stdlib.h /usr/include/string.h \
- /usr/include/bits/types/locale_t.h /usr/include/bits/types/__locale_t.h \
- /usr/include/strings.h /usr/include/bits/strings_fortified.h \
- /usr/include/bits/string_fortified.h list_func.h input_func.h
-/usr/include/stdc-predef.h:
-/usr/include/stdio.h:
-/usr/include/bits/libc-header-start.h:
-/usr/include/features.h:
-/usr/include/features-time64.h:
-/usr/include/bits/wordsize.h:
-/usr/include/bits/timesize.h:
-/usr/include/sys/cdefs.h:
-/usr/include/bits/long-double.h:
-/usr/include/gnu/stubs.h:
-/usr/include/gnu/stubs-64.h:
-/usr/lib/gcc/x86_64-pc-linux-gnu/11.3.0/include/stddef.h:
-/usr/lib/gcc/x86_64-pc-linux-gnu/11.3.0/include/stdarg.h:
-/usr/include/bits/types.h:
-/usr/include/bits/typesizes.h:
-/usr/include/bits/time64.h:
-/usr/include/bits/types/__fpos_t.h:
-/usr/include/bits/types/__mbstate_t.h:
-/usr/include/bits/types/__fpos64_t.h:
-/usr/include/bits/types/__FILE.h:
-/usr/include/bits/types/FILE.h:
-/usr/include/bits/types/struct_FILE.h:
-/usr/include/bits/stdio_lim.h:
-/usr/include/bits/floatn.h:
-/usr/include/bits/floatn-common.h:
-/usr/include/bits/stdio.h:
-/usr/include/bits/stdio2.h:
-/usr/include/stdlib.h:
-/usr/include/bits/waitflags.h:
-/usr/include/bits/waitstatus.h:
-/usr/include/sys/types.h:
-/usr/include/bits/types/clock_t.h:
-/usr/include/bits/types/clockid_t.h:
-/usr/include/bits/types/time_t.h:
-/usr/include/bits/types/timer_t.h:
-/usr/include/bits/stdint-intn.h:
-/usr/include/endian.h:
-/usr/include/bits/endian.h:
-/usr/include/bits/endianness.h:
-/usr/include/bits/byteswap.h:
-/usr/include/bits/uintn-identity.h:
-/usr/include/sys/select.h:
-/usr/include/bits/select.h:
-/usr/include/bits/types/sigset_t.h:
-/usr/include/bits/types/__sigset_t.h:
-/usr/include/bits/types/struct_timeval.h:
-/usr/include/bits/types/struct_timespec.h:
-/usr/include/bits/select2.h:
-/usr/include/bits/pthreadtypes.h:
-/usr/include/bits/thread-shared-types.h:
-/usr/include/bits/pthreadtypes-arch.h:
-/usr/include/bits/atomic_wide_counter.h:
-/usr/include/bits/struct_mutex.h:
-/usr/include/bits/struct_rwlock.h:
-/usr/include/alloca.h:
-/usr/include/bits/stdlib-bsearch.h:
-/usr/include/bits/stdlib-float.h:
-/usr/include/bits/stdlib.h:
-/usr/include/string.h:
-/usr/include/bits/types/locale_t.h:
-/usr/include/bits/types/__locale_t.h:
-/usr/include/strings.h:
-/usr/include/bits/strings_fortified.h:
-/usr/include/bits/string_fortified.h:
+main.o: main.c \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/stdio.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/libc-header-start.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/features.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/features-time64.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/wordsize.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/timesize.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/stdc-predef.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/sys/cdefs.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/long-double.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/gnu/stubs.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/include/stddef.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/include/stdarg.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/typesizes.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/time64.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__fpos_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__mbstate_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__fpos64_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__FILE.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/FILE.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/struct_FILE.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdio_lim.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/floatn.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/floatn-common.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdio.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/stdlib.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/waitflags.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/waitstatus.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/sys/types.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/clock_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/clockid_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/time_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/timer_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdint-intn.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/endian.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/endian.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/endianness.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/byteswap.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/uintn-identity.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/sys/select.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/select.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/sigset_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__sigset_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/struct_timeval.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/struct_timespec.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/pthreadtypes.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/thread-shared-types.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/alloca.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdlib-bsearch.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdlib-float.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/string.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/locale_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__locale_t.h \
+  /nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/strings.h \
+  list_func.h input_func.h
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/stdio.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/libc-header-start.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/features.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/features-time64.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/timesize.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/stdc-predef.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/sys/cdefs.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/long-double.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/include/stddef.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/include/stdarg.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/time64.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__fpos_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__mbstate_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__fpos64_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__FILE.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/FILE.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/struct_FILE.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdio_lim.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/floatn.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/floatn-common.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdio.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/stdlib.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/waitflags.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/waitstatus.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/sys/types.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/clock_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/clockid_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/time_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/timer_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdint-intn.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/endian.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/endian.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/endianness.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/byteswap.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/uintn-identity.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/sys/select.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/select.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/sigset_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__sigset_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/struct_timeval.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/struct_timespec.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/pthreadtypes.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/thread-shared-types.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/alloca.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdlib-bsearch.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/stdlib-float.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/string.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/locale_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/bits/types/__locale_t.h:
+
+/nix/store/vyq1nak0db8x02ziamf8prdcyxw91lj1-zig-0.9.1/lib/zig/libc/include/generic-glibc/strings.h:
+
 list_func.h:
+
 input_func.h:
